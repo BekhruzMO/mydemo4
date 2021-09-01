@@ -25,7 +25,7 @@ class _Page2State extends State<Page2> {
           child: Text('Name: ${widget.name}, age:${widget.age}',
             style: TextStyle(color: Colors.white, fontSize: 32), ),
           onPressed: (){
-            Navigator.pop(context);
+            Navigator.of(context).pop({'data1':"Dart",'data2':33} );
           },
         ),
       ),

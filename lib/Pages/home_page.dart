@@ -11,8 +11,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  String? name1;
+  int? age1;
   Future getMessage() async {
-    Navigator.of(context).push(new MaterialPageRoute(
+Map result= await    Navigator.of(context).push(new MaterialPageRoute(
       builder: (BuildContext context) {
         return new Page2(
           name: 'Flutter',
@@ -20,6 +23,12 @@ class _HomePageState extends State<HomePage> {
         );
       },
     ));
+if(result.containsKey('data1')&&result.containsKey('data2')) {
+  setState(() {
+    name1 = result['data1'];
+    age1 = result['data2'];
+  });
+}
   }
   @override
   Widget build(BuildContext context) {
@@ -39,7 +48,7 @@ class _HomePageState extends State<HomePage> {
               getMessage();
             },
             child: Text(
-              'ButtonTwo',
+              'Name: $name1, age:$age1',
               style: TextStyle(color: Colors.amberAccent, fontSize: 32),
             ),
           ),
