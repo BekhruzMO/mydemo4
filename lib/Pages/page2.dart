@@ -1,40 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:mydemo4/Pages/page3.dart';
 
 class Page2 extends StatefulWidget {
-
-  static final String id = 'page2';
-  const Page2({Key? key}) : super(key: key);
+  static final String id='page_2';
+ final String? name;
+ final int? age;
+  Page2({this.name, this.age});
 
   @override
   _Page2State createState() => _Page2State();
 }
 
 class _Page2State extends State<Page2> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-appBar: AppBar(
-  title: Text('page 2'),
-),
+      appBar: AppBar(
+        title: Text('Page 2'),
+      ),
       body: Center(
         child: TextButton(
-          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.amber)),
+          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),
+          child: Text('Name: ${widget.name}, age:${widget.age}',
+            style: TextStyle(color: Colors.white, fontSize: 32), ),
           onPressed: (){
-            Navigator.pushNamed(context, Page3.id);
+            Navigator.pop(context);
           },
-          child:
-          Text(
-            'Bu Page2',
-            style: TextStyle(color: Colors.lightGreen, fontSize: 32),
-
-          ),
-        )
-
-
-
+        ),
       ),
-
     );
   }
 }
